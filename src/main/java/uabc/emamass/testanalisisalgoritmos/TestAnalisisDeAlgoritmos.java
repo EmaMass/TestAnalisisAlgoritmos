@@ -3,6 +3,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
 package uabc.emamass.testanalisisalgoritmos;
+import java.io.*;
 import java.awt.Color; 
 import java.awt.BasicStroke; 
 import org.jfree.chart.*;
@@ -23,7 +24,7 @@ import org.jfree.chart.renderer.xy.XYLineAndShapeRenderer;
  */
 public class TestAnalisisDeAlgoritmos extends ApplicationFrame{
      
-     public TestAnalisisDeAlgoritmos(String applicationTitle,String chartTitle) {
+     public TestAnalisisDeAlgoritmos(String applicationTitle,String chartTitle) throws IOException {
       super(applicationTitle);
       JFreeChart xylineChart = ChartFactory.createXYLineChart(
          chartTitle,
@@ -46,6 +47,8 @@ public class TestAnalisisDeAlgoritmos extends ApplicationFrame{
       renderer.setSeriesStroke(2 ,new BasicStroke( 2.0f ));
       plot.setRenderer(renderer); 
       setContentPane(chartPanel); 
+      File XYChart = new File("XYChartn200.jpeg");
+      ChartUtilities.saveChartAsJPEG(XYChart,xylineChart,560,367);
    }
    
    private XYDataset createDataset() {
@@ -85,12 +88,13 @@ public class TestAnalisisDeAlgoritmos extends ApplicationFrame{
       return dataset;
    }
 
-   public static void main(String[] args) {
+   public static void main(String[] args) throws IOException {
       TestAnalisisDeAlgoritmos chart = new TestAnalisisDeAlgoritmos("Graficas Analisis Algoritmos",
          "Tarea Analisis de Algoritmos");
       chart.pack();          
       RefineryUtilities.centerFrameOnScreen(chart);          
       chart.setVisible(true); 
+      
    }
    
    public static long sumatoria0aN(long n){
