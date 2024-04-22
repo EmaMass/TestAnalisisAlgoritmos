@@ -26,26 +26,26 @@ public class TestAnalisisDeAlgoritmos extends ApplicationFrame{
      public TestAnalisisDeAlgoritmos(String applicationTitle,String chartTitle) {
       super(applicationTitle);
       JFreeChart xylineChart = ChartFactory.createXYLineChart(
-         chartTitle ,
-         "Valor N" ,
-         "Tiempo (Nano)" ,
-         createDataset() ,
-         PlotOrientation.VERTICAL ,
-         true , true , false);
+         chartTitle,
+         "Valor N",
+         "Tiempo (Nano)",
+         createDataset(),
+         PlotOrientation.VERTICAL,
+         true ,true ,false);
          
-      ChartPanel chartPanel = new ChartPanel( xylineChart );
-      chartPanel.setPreferredSize( new java.awt.Dimension( 560 , 367 ) );
-      final XYPlot plot = xylineChart.getXYPlot( );
+      ChartPanel chartPanel = new ChartPanel(xylineChart);
+      chartPanel.setPreferredSize(new java.awt.Dimension(560 ,367));
+      final XYPlot plot = xylineChart.getXYPlot();
       
-      XYLineAndShapeRenderer renderer = new XYLineAndShapeRenderer( );
+      XYLineAndShapeRenderer renderer = new XYLineAndShapeRenderer();
       renderer.setSeriesPaint(0 ,Color.RED );
       renderer.setSeriesPaint(1 ,Color.GREEN );
       renderer.setSeriesPaint(2 ,Color.YELLOW );
-      renderer.setSeriesStroke(0 ,new BasicStroke( 4.0f ) );
-      renderer.setSeriesStroke(1 ,new BasicStroke( 3.0f ) );
-      renderer.setSeriesStroke(2 ,new BasicStroke( 2.0f ) );
+      renderer.setSeriesStroke(0 ,new BasicStroke( 4.0f ));
+      renderer.setSeriesStroke(1 ,new BasicStroke( 3.0f ));
+      renderer.setSeriesStroke(2 ,new BasicStroke( 2.0f ));
       plot.setRenderer(renderer); 
-      setContentPane( chartPanel ); 
+      setContentPane(chartPanel); 
    }
    
    private XYDataset createDataset() {
@@ -79,7 +79,7 @@ public class TestAnalisisDeAlgoritmos extends ApplicationFrame{
       }
       
       final XYSeriesCollection dataset = new XYSeriesCollection( );          
-      dataset.addSeries( iterativa);      
+      dataset.addSeries(iterativa);      
       dataset.addSeries(gauss);
       dataset.addSeries(recursiva);
       return dataset;
@@ -88,9 +88,9 @@ public class TestAnalisisDeAlgoritmos extends ApplicationFrame{
    public static void main(String[] args) {
       TestAnalisisDeAlgoritmos chart = new TestAnalisisDeAlgoritmos("Graficas Analisis Algoritmos",
          "Tarea Analisis de Algoritmos");
-      chart.pack( );          
-      RefineryUtilities.centerFrameOnScreen( chart );          
-      chart.setVisible( true ); 
+      chart.pack();          
+      RefineryUtilities.centerFrameOnScreen(chart);          
+      chart.setVisible(true); 
    }
    
    public static long sumatoria0aN(long n){
